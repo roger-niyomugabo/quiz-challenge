@@ -9,6 +9,7 @@ const createServer = (app) => {
   // Enable all cors requests
   app.use(cors());
   app.use(express.urlencoded({ extended: false }));
+  app.use(express.json());
 
   // quiz routes
   app.use('/api/v1/quiz/:quizId', quiz_detail);
