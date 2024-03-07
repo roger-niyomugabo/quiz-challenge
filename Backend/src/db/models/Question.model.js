@@ -25,7 +25,7 @@ export const Question = sequelize.define('question', {
 
 // Question to Option association
 Question.hasMany(Option, {
-  foreignKey: 'questionId', // Foreign key in Option model
+  foreignKey: 'questionId',
   sourceKey: 'id',
   onDelete: 'CASCADE'
 });

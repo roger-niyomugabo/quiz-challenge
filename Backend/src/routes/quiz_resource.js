@@ -8,19 +8,16 @@ import { Option } from '../db/models/Option.model';
 import { validate } from '../middlewares/middleware';
 const router = express.Router();
 
-// schemas for options
 const optionSchema = Joi.object({
   option: Joi.string().required(),
   isCorrect: Joi.boolean().required()
 });
 
-// schema for a question
 const questionSchema = Joi.object({
   question: Joi.string().required(),
   options: Joi.array().items(optionSchema).min(1).required()
 });
 
-// create quiz validations
 const quizValidations = Joi.object({
   title: Joi.string().required(),
   description: Joi.string().required(),
@@ -60,7 +57,7 @@ router.post('/', validate(quizValidations), async (req, res) => {
   }
 });
 
-// function to get all quizes
+// function to get all quizzes
 router.get('/', async (req, res) => {
   try {
     const quizzes = await Quiz.findAndCountAll({ order: [['createdAt', 'DESC']] });

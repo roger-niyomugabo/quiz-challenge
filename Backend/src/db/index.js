@@ -1,12 +1,9 @@
 /* eslint-disable camelcase */
 import { Sequelize } from 'sequelize';
 import { db_config } from '../config/db_config';
-// import { initModels } from './models';
 
 const config = db_config[process.env.NODE_ENV];
 
-// Get DB credentials
-// Connection with the DB
 const db = new Sequelize(config.database, config.username, config.password, {
   host: config.host,
   dialect: config.dialect,
@@ -14,7 +11,6 @@ const db = new Sequelize(config.database, config.username, config.password, {
   logging: false
 });
 
-// Check DB connection
 db
   .authenticate()
   .then(() => {
@@ -25,8 +21,5 @@ db
   .catch((err) => {
     console.log({ message: 'Unable to connect to the database:', meta: { error: err } });
   });
-
-// Init models
-// initModels(db);
 
 export default db;

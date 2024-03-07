@@ -3,8 +3,6 @@ import sequelize from '../../db';
 
 import { Question } from './Question.model';
 
-// Define your Quiz model
-
 export const Quiz = sequelize.define('quiz', {
   id: {
     type: DataTypes.UUID,
@@ -28,9 +26,9 @@ export const Quiz = sequelize.define('quiz', {
   }
 });
 
-// Declare associations here
+// Quiz to Question association
 Quiz.hasMany(Question, {
-  foreignKey: 'quizId', // Foreign key in Question model
+  foreignKey: 'quizId',
   sourceKey: 'id',
   onDelete: 'CASCADE'
 });

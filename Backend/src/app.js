@@ -6,7 +6,6 @@ import quiz_resource from './routes/quiz_resource';
 import quiz_detail from './routes/quiz_detail';
 
 const createServer = (app) => {
-  // Enable all cors requests
   app.use(cors());
   app.use(express.urlencoded({ extended: false }));
   app.use(express.json());
