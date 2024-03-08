@@ -12,7 +12,7 @@ function quizReducer(state, action) {
 
     case "CREATE_QUIZ":
       return {
-        quizzes: [action.payload, ...state.workouts],
+        quizzes: [action.payload, ...state.quizzes],
       };
 
     case "DELETE_QUIZ":
