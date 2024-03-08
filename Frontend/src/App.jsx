@@ -1,5 +1,5 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import Home, { loader as quizLoader } from "./ui/Home";
+import Home from "./ui/Home";
 import AppLayout from "./ui/AppLayout";
 import Error from "./ui/Error";
 import CreateQuiz from "./features/quiz/CreateQuiz";
@@ -10,7 +10,7 @@ const router = createBrowserRouter([
     element: <AppLayout />,
     errorElement: <Error />,
     children: [
-      { path: "/", element: <Home />, loader: quizLoader },
+      { path: "/", element: <Home /> },
       {
         path: "/quiz/new",
         element: <CreateQuiz />,
