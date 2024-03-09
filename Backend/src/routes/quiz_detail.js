@@ -15,10 +15,24 @@ router.delete('/', async (req, res) => {
     const { quizId } = req.params;
     const quizExists = await Quiz.findOne({ where: { id: quizId } });
     if (!quizExists) {
-      return output(res, 400, 'Quiz does not exist', null, 'BAD_REQUEST');
+      return output(res, 404, 'Quiz does not exist', null, 'NOT_FOUND');
     }
     await quizExists.destroy();
     return output(res, 200, 'Quiz deleted successfully', null, null);
+  } catch (error) {
+    return output(res, 500, error.message || error, null, 'SERVER_ERROR');
+  }
+});
+
+// function to get a single quiz
+router.get('/', async (req, res) => {
+  try {
+    const { quizId } = req.params;
+    const quiz = await Quiz.findOne({ where: { id: quizId }, include: [{ model: Question, include: Option }] });
+    if (!quiz) {
+      return output(res, 404, 'Quiz does not exist', null, 'NOT_FOUND');
+    }
+    return output(res, 200, 'Quiz retrieved successfully', quiz, null);
   } catch (error) {
     return output(res, 500, error.message || error, null, 'SERVER_ERROR');
   }

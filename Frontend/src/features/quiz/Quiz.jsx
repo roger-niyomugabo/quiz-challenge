@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import { useQuizContext } from "../../context/QuizContext";
+import { Link } from "react-router-dom";
 
 function Quiz({ quiz }) {
   const { dispatch } = useQuizContext();
@@ -13,14 +14,16 @@ function Quiz({ quiz }) {
     );
 
     if (response.ok) {
-      dispatch({ type: "DELETE_QUIZ", payload: quiz.id });
+      dispatch({ type: "quiz/deleted", payload: quiz.id });
     }
   };
 
   return (
     <div className="quiz-details">
-      <h4>{quiz.title}</h4>
-      <p>{quiz.description}</p>
+      <Link to={`/quiz/${quiz.id}`}>
+        <h4>{quiz.title}</h4>
+        <p>{quiz.description}</p>
+      </Link>
       <p className="date">
         {formatDistanceToNow(new Date(quiz.createdAt), { addSuffix: true })}
       </p>

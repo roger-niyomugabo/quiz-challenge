@@ -8,3 +8,12 @@ export async function getQuizzes() {
   const { data } = await res.json();
   return data.rows;
 }
+
+export async function getQuiz(quizId) {
+  const res = await fetch(`${API_URL}/quiz/${quizId}`);
+
+  if (!res.ok) throw Error(`Couldn't find Quiz #${quizId}`);
+
+  const { data } = await res.json();
+  return data;
+}

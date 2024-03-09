@@ -10,7 +10,6 @@ function Header() {
         <nav>
           <div>
             <Link to="/quiz/new">Create Quiz</Link>
-            {/* <Link to="/#">Login</Link> */}
           </div>
         </nav>
       </div>

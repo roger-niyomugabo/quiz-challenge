@@ -80,7 +80,7 @@ const CreateQuiz = () => {
     console.log(data);
 
     if (response.ok) {
-      dispatch({ type: "CREATE_QUIZ", payload: data });
+      dispatch({ type: "quiz/created", payload: data });
       navigate("/");
     }
   };

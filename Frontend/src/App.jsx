@@ -3,7 +3,7 @@ import Home from "./ui/Home";
 import AppLayout from "./ui/AppLayout";
 import Error from "./ui/Error";
 import CreateQuiz from "./features/quiz/CreateQuiz";
-import Quiz from "./features/quiz/Quiz";
+import StartScreen, { loader as quizLoader } from "./ui/StartScreen";
 
 const router = createBrowserRouter([
   {
@@ -17,7 +17,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/quiz/:quizId",
-        element: <Quiz />,
+        element: <StartScreen />,
+        loader: quizLoader,
         errorElement: <Error />,
       },
     ],
