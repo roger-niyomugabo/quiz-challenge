@@ -58,12 +58,18 @@ nav button {
   font-size: 1em;
 }
 
+.app-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 /* footer */
 footer {
+  margin-top: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  bottom: 0;
   padding: 1.2rem 3rem;
   background-color: #dcdcdc;
 }

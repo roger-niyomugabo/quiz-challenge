@@ -4,7 +4,7 @@ import PageFooter from "./PageFooter";
 
 function AppLayout() {
   return (
-    <div>
+    <div className="app-layout">
       <Header />
       <div className="overflow-scroll">
         <main className="pages">

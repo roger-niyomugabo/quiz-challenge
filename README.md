@@ -105,3 +105,148 @@ We have provided help with the git workflow but now your project is done and has
 - Your fork that has your code should add a section with instructions on how someone could run your porject on their own machine. And you should assume that their laptop is brand with nothing but the operating system which could be Linux, Windows or MacOS. Which means you must provide instructions for all.
 - If you encounter a challenge you can open an issue on this repository and decribe your problem. You can even include some screenshots.![screenshot](https://user-images.githubusercontent.com/17580572/112598156-d7731400-8e16-11eb-9ee1-46b4de5c88fc.png)
 - Remember reading, understanding and executing these instructions is part of the challenge.
+
+# Instructions on how to run the project on any machine
+
+Below are the steps that will work you through installation, code download and run the app/project on your machine.
+
+## Installation
+
+### Linux:
+
+1. **Install Node.js and npm:**
+
+   - Open the terminal.
+   - Run the following commands:
+     ```
+     sudo apt update
+     sudo apt install nodejs
+     sudo apt install npm
+     ```
+
+2. **Install PostgreSQL:**
+
+   - Install PostgreSQL using the package manager:
+     ```
+     sudo apt-get install postgresql
+     ```
+
+3. **Install Git:**
+
+   - Run the following command:
+     ```
+     sudo apt install git
+     ```
+
+4. **Clone the Repository:**
+
+   - Run the following command to clone the repository:
+     ```
+     git clone <repository_url>
+     ```
+
+5. **Install Dependencies:**
+
+   - Navigate to the project directory.
+   - Run the following command to install dependencies:
+     ```
+     npm install
+     ```
+
+6. **Run the Application:**
+   - Open the `package.json` file and check for scripts to run the application.
+   - Typically, you can start the application by navigating to the project directory and run:
+     ```
+     npm run dev
+     ```
+
+### Windows:
+
+1. **Install Node.js and npm:**
+
+   - Download the Node.js installer from the official website and follow the installation instructions.
+     https://nodejs.org/en/download
+
+2. **Install PostgreSQL:**
+
+   - Download the PostgreSQL installer from the official website and follow the installation instructions.
+     https://www.postgresql.org/download/
+
+3. **Install Git:**
+
+   - Download the Git installer from the official website and follow the installation instructions.
+     https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+
+4. **Clone the Repository:**
+
+   - Open Command Prompt or Git Bash.
+   - Run the following command to clone the repository:
+     ```
+     git clone <repository_url>
+     ```
+
+5. **Install Dependencies:**
+
+   - Navigate to the project directory in Command Prompt or Git Bash.
+   - Run the following command to install dependencies:
+     ```
+     npm install
+     ```
+
+6. **Run the Application:**
+   - Open the `package.json` file and check for scripts to run the application.
+   - Typically, you can run the application by navigating to the project directory using:
+     ```
+     npm run dev
+     ```
+
+### macOS:
+
+1. **Install Node.js and npm:**
+
+   - Install Homebrew if you haven't already.
+   - Run the following command to install Node.js and npm:
+     ```
+     brew install node
+     ```
+
+2. **Install PostgreSQL:**
+
+   - Install PostgreSQL using Homebrew:
+     ```
+     brew install postgresql
+     ```
+
+3. **Install Git:**
+
+   - Git comes pre-installed with macOS. If not, you can install it using Homebrew:
+     ```
+     brew install git
+     ```
+
+4. **Clone the Repository:**
+
+   - Open Terminal.
+   - Run the following command to clone the repository:
+     ```
+     git clone <repository_url>
+     ```
+
+5. **Install Dependencies:**
+
+   - Navigate to the project directory in Terminal.
+   - Run the following command to install dependencies:
+     ```
+     npm install
+     ```
+
+6. **Run the Application:**
+   - Open the `package.json` file and check for scripts to run the application.
+   - Typically, you can run the application by navigating to the project directory using:
+     ```
+     npm run dev
+     ```
+
+## Usage
+
+If you are facing challenges with running the application on youe local machine/laptop, follow the link below to the hosted version of the application.
