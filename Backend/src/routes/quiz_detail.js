@@ -97,7 +97,11 @@ router.patch('/', validate(quizUpdateValidations), async (req, res) => {
       }));
     });
 
-    return output(res, 200, 'Quiz updated successfully', null, null);
+    const updatedQuiz = await Quiz.findOne({
+      where: { id: quizId },
+      include: [{ model: Question, include: Option }]
+    });
+    return output(res, 200, 'Quiz updated successfully', updatedQuiz, null);
   } catch (error) {
     return output(res, 500, error.message || error, null, 'SERVER_ERROR');
   }

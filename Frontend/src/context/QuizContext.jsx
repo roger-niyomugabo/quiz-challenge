@@ -12,8 +12,8 @@ export const QuizContext = createContext();
 
 const initialState = {
   quizzes: [],
-  // 'loading', 'error', 'ready', 'active', 'finished'
   questions: [],
+  // 'loading', 'error', 'ready', 'active', 'finished'
   status: "loading",
   index: 0,
   answer: null,
@@ -30,7 +30,6 @@ function quizReducer(state, action) {
       return {
         ...state,
         questions: action.payload,
-        // status: "ready",
       };
 
     case "dataFailed":
@@ -92,6 +91,19 @@ function quizReducer(state, action) {
       return {
         ...state,
         quizzes: [action.payload, ...state.quizzes],
+      };
+
+    case "quiz/updated":
+      // Find the index of the updated quiz in the state
+      const updatedQuizIndex = state.quizzes.findIndex(
+        (quiz) => quiz.id === action.payload.id
+      );
+      const updatedQuizzes = [...state.quizzes];
+      updatedQuizzes[updatedQuizIndex] = action.payload;
+
+      return {
+        ...state,
+        quizzes: updatedQuizzes,
       };
 
     case "quiz/deleted":

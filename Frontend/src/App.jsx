@@ -4,6 +4,7 @@ import AppLayout from "./ui/AppLayout";
 import Error from "./ui/Error";
 import CreateQuiz from "./features/quiz/CreateQuiz";
 import StartScreen, { loader as quizLoader } from "./ui/StartScreen";
+import UpdateQuiz from "./features/quiz/UpdateQuiz";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,11 @@ const router = createBrowserRouter([
       {
         path: "/quiz/new",
         element: <CreateQuiz />,
+      },
+      {
+        path: "/quiz/:quizId/update",
+        element: <UpdateQuiz />,
+        errorElement: <Error />,
       },
       {
         path: "/quiz/:quizId",

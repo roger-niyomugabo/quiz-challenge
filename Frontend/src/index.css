@@ -85,6 +85,14 @@ nav button {
 .quiz-details .date {
   margin-top: 5px;
 }
+.material-symbols-outlined {
+  display: inline-block;
+  margin-right: 0;
+}
+
+.material-symbols-outlined:last-child {
+  margin-right: 3rem;
+}
 
 /* CreateQuiz Form */
 form {

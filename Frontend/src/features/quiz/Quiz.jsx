@@ -30,6 +30,9 @@ function Quiz({ quiz }) {
       <span className="material-symbols-outlined" onClick={handleDelete}>
         delete
       </span>
+      <Link to={`/quiz/${quiz.id}/update`}>
+        <span className="material-symbols-outlined">edit</span>
+      </Link>
     </div>
   );
 }
