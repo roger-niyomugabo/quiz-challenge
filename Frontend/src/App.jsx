@@ -21,13 +21,13 @@ const router = createBrowserRouter([
         element: <UpdateQuiz />,
         errorElement: <Error />,
       },
-      {
-        path: "/quiz/:quizId",
-        element: <StartScreen />,
-        loader: quizLoader,
-        errorElement: <Error />,
-      },
     ],
+  },
+  {
+    path: "/quiz/:quizId",
+    element: <StartScreen />,
+    loader: quizLoader,
+    errorElement: <Error />,
   },
 ]);
 

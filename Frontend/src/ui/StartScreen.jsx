@@ -1,6 +1,6 @@
 import { useQuizContext } from "../context/QuizContext";
 import { getQuiz } from "../services/apiQuiz";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Progress from "./Progress";
 import Question from "./Question";
 import Footer from "./Footer";
@@ -14,7 +14,6 @@ import Main from "./Main";
 function StartScreen() {
   const quiz = useLoaderData();
   const { status, dispatch } = useQuizContext();
-
   const numQuestions = quiz.questions.length;
   const maxPossiblePoints = quiz.questions.reduce(
     (prevValue) => prevValue + 10,
@@ -30,13 +29,14 @@ function StartScreen() {
           <div className="start">
             <h2>Welcome to the {quiz.title}</h2>
             <h3>{numQuestions} questions to test your mastery</h3>
-            <h3>The Quiz carries {maxPossiblePoints} Marks!</h3>
+            <h4>The Quiz carries {maxPossiblePoints} Marks!</h4>
             <button
               className="btn btn-ui"
               onClick={() => dispatch({ type: "start" })}
             >
               Get started!
             </button>
+            <Link to="/">Back to Home page</Link>
           </div>
         )}
         {status === "active" && (

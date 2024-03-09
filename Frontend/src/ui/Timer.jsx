@@ -3,21 +3,16 @@ import { useQuizContext } from "../context/QuizContext";
 
 function Timer() {
   const { dispatch, secondsRemaining } = useQuizContext();
-
   const mins = Math.floor(secondsRemaining / 60);
   const seconds = secondsRemaining % 60;
 
-  useEffect(
-    function () {
-      const id = setInterval(function () {
-        dispatch({ type: "tick" });
-      }, 1000);
-
-      //   cleanup function to stop time when comp unmounts
-      return () => clearInterval(id);
-    },
-    [dispatch]
-  );
+  useEffect(() => {
+    const id = setInterval(function () {
+      dispatch({ type: "tick" });
+    }, 1000);
+    //   cleanup function to stop time when comp unmounts
+    return () => clearInterval(id);
+  }, [dispatch]);
 
   return (
     <div className="timer">

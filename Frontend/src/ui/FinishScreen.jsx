@@ -1,9 +1,10 @@
 /* eslint-disable react/prop-types */
+import { useNavigate } from "react-router-dom";
 import { useQuizContext } from "../context/QuizContext";
 
 function FinishScreen({ quiz }) {
   const { points, highscore, dispatch } = useQuizContext();
-  // derived state
+  const navigate = useNavigate();
   const maxPossiblePoints = quiz.questions.reduce(
     (prevValue) => prevValue + 10,
     0
@@ -19,11 +20,21 @@ function FinishScreen({ quiz }) {
 
   return (
     <>
+      <h1 className="quiz-title">{quiz.title}</h1>
       <p className="result">
         <span>{emoji}</span> You scored <strong>{points}</strong> out of{" "}
         {maxPossiblePoints} ({Math.ceil(percenatge)}%)
       </p>
       <p className="highscore">(high score: {highscore} points)</p>
+      <button
+        className="btn btn-uis"
+        onClick={() => {
+          dispatch({ type: "newQuiz" });
+          navigate("/");
+        }}
+      >
+        Take another Quiz
+      </button>
       <button
         className="btn btn-ui"
         onClick={() => dispatch({ type: "restart" })}

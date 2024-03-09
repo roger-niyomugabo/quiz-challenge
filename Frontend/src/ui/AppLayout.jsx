@@ -1,5 +1,6 @@
 import Header from "./Header";
 import { Outlet } from "react-router-dom";
+import PageFooter from "./PageFooter";
 
 function AppLayout() {
   return (
@@ -10,7 +11,7 @@ function AppLayout() {
           <Outlet />
         </main>
       </div>
-      {/*  footer */}
+      <PageFooter />
     </div>
   );
 }

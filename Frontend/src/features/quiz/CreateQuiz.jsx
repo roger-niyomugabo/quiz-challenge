@@ -68,7 +68,6 @@ const CreateQuiz = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const response = await fetch(`http://localhost:8000/api/v1/quiz`, {
       method: "POST",
       body: JSON.stringify(formData),
@@ -143,10 +142,12 @@ const CreateQuiz = () => {
           </button>
         </div>
       ))}
-      <button type="button" onClick={addQuestion}>
-        Add Question
-      </button>
-      <button type="submit">Submit</button>
+      <div className="button-group">
+        <button type="button" onClick={addQuestion}>
+          Add Question
+        </button>
+        <button type="submit">Create Quiz</button>
+      </div>
     </Form>
   );
 };

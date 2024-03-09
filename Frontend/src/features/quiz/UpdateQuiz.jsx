@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Form, useNavigate, useParams } from "react-router-dom";
 import { useQuizContext } from "../../context/QuizContext";
 
-const UpdateQuiz = () => {
+function UpdateQuiz() {
   const { quizId } = useParams();
   const [formData, setFormData] = useState({
     title: "",
@@ -86,7 +86,6 @@ const UpdateQuiz = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
       const response = await fetch(
         `http://localhost:8000/api/v1/quiz/${quizId}`,
@@ -170,12 +169,14 @@ const UpdateQuiz = () => {
           </button>
         </div>
       ))}
-      <button type="button" onClick={addQuestion}>
-        Add Question
-      </button>
-      <button type="submit">Submit</button>
+      <div className="button-group">
+        <button type="button" onClick={addQuestion}>
+          Add Question
+        </button>
+        <button type="submit">Update Quiz</button>
+      </div>
     </Form>
   );
-};
+}
 
 export default UpdateQuiz;

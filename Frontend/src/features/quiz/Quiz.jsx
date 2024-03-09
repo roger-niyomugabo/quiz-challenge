@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 function Quiz({ quiz }) {
   const { dispatch } = useQuizContext();
+
   const handleDelete = async () => {
     const response = await fetch(
       `http://localhost:8000/api/v1/quiz/${quiz.id}`,
@@ -12,7 +13,6 @@ function Quiz({ quiz }) {
         method: "DELETE",
       }
     );
-
     if (response.ok) {
       dispatch({ type: "quiz/deleted", payload: quiz.id });
     }

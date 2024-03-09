@@ -35,6 +35,13 @@ function quizReducer(state, action) {
     case "dataFailed":
       return { ...state, status: "error" };
 
+    case "newQuiz":
+      return {
+        ...initialState,
+        quizzes: state.quizzes,
+        status: "ready",
+      };
+
     case "start":
       return {
         ...state,

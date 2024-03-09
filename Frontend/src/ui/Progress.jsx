@@ -7,6 +7,7 @@ function Progress({ quiz, numQuestions }) {
     (prevValue) => prevValue + 10,
     0
   );
+
   return (
     <header className="progress">
       <progress max={numQuestions} value={index + Number(answer !== null)} />

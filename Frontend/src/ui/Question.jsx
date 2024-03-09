@@ -3,23 +3,16 @@ import { useEffect } from "react";
 import { useQuizContext } from "../context/QuizContext";
 
 function Question({ quiz }) {
-  const { status, index, questions, getQuiz, dispatch, answer } =
-    useQuizContext();
+  const { index, questions, getQuiz, dispatch, answer } = useQuizContext();
   const question = questions.at(index);
-  console.log(status);
 
-  console.log("Quiz now", quiz);
+  useEffect(() => {
+    const getQuestions = async () => {
+      await getQuiz(quiz.id);
+    };
 
-  useEffect(
-    function () {
-      const getQuestions = async () => {
-        await getQuiz(quiz.id);
-      };
-
-      getQuestions();
-    },
-    [quiz.id, getQuiz]
-  );
+    getQuestions();
+  }, [quiz.id, getQuiz]);
 
   return (
     <div>
@@ -35,7 +28,7 @@ function Question({ quiz }) {
                 } ${
                   answer !== null && option.isCorrect
                     ? "correct"
-                    : answer === index
+                    : answer !== null
                     ? "wrong"
                     : ""
                 }`}
