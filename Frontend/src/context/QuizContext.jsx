@@ -8,6 +8,8 @@ import {
   useReducer,
 } from "react";
 
+const API_URL = process.env.API_URL;
+
 export const QuizContext = createContext();
 
 const initialState = {
@@ -141,7 +143,7 @@ export function QuizProvider({ children }) {
 
   useEffect(
     function () {
-      fetch("http://localhost:8000/api/v1/quiz")
+      fetch(`${API_URL}`)
         .then((res) => res.json())
         .then((data) =>
           dispatch({ type: "quizzes/loaded", payload: data.data.rows })
@@ -153,7 +155,7 @@ export function QuizProvider({ children }) {
 
   const getQuiz = useCallback(async function getQuiz(id) {
     try {
-      const res = await fetch(`http://localhost:8000/api/v1/quiz/${id}`);
+      const res = await fetch(`${API_URL}/${id}`);
       const data = await res.json();
       dispatch({ type: "quiz/loaded", payload: data.data.questions });
     } catch (error) {

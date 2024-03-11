@@ -1,7 +1,7 @@
-const API_URL = "http://localhost:8000/api/v1";
+const API_URL = process.env.API_URL;
 
 export async function getQuizzes() {
-  const res = await fetch(`${API_URL}/quiz`);
+  const res = await fetch(`${API_URL}`);
 
   if (!res.ok) throw Error("Failed getting quizzes");
 
@@ -10,7 +10,7 @@ export async function getQuizzes() {
 }
 
 export async function getQuiz(quizId) {
-  const res = await fetch(`${API_URL}/quiz/${quizId}`);
+  const res = await fetch(`${API_URL}/${quizId}`);
 
   if (!res.ok) throw Error(`Couldn't find Quiz #${quizId}`);
 

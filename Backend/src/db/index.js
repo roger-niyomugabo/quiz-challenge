@@ -6,6 +6,7 @@ const config = db_config[process.env.NODE_ENV];
 
 let db;
 if (process.env.DB_URL) {
+  console.log(process.env.DB_URL);
   db = new Sequelize(process.env.DB_URL);
 }
 db = new Sequelize(config.database, config.username, config.password, {

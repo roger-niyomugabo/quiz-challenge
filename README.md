@@ -249,4 +249,5 @@ Below are the steps that will work you through installation, code download and r
 
 ## Usage
 
-If you are facing challenges with running the application on youe local machine/laptop, follow the link below to the hosted version of the application.
+If you are facing challenges with running the application on your local machine/laptop, follow the link below to the hosted version of the application.
+Link: https://quizchallenge2.netlify.app/

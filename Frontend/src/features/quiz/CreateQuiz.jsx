@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Form, useNavigate } from "react-router-dom";
 import { useQuizContext } from "../../context/QuizContext";
 
+const API_URL = process.env.API_URL;
+
 const CreateQuiz = () => {
   const [formData, setFormData] = useState({
     title: "",
@@ -68,7 +70,7 @@ const CreateQuiz = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch(`http://localhost:8000/api/v1/quiz`, {
+    const response = await fetch(`${API_URL}`, {
       method: "POST",
       body: JSON.stringify(formData),
       headers: {

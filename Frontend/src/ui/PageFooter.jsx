@@ -13,7 +13,9 @@ function PageFooter() {
       </p>
       <div>
         &copy; {new Date().getFullYear()} Copyright:{" "}
-        <Link to="https://mdbootstrap.com/">Link to the hosted App</Link>
+        <Link to="https://quizchallenge2.netlify.app/">
+          Link to the hosted App (At NETLIFY)
+        </Link>
       </div>
     </footer>
   );

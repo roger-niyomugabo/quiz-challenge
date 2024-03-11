@@ -3,16 +3,15 @@ import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import { useQuizContext } from "../../context/QuizContext";
 import { Link } from "react-router-dom";
 
+const API_URL = process.env.API_URL;
+
 function Quiz({ quiz }) {
   const { dispatch } = useQuizContext();
 
   const handleDelete = async () => {
-    const response = await fetch(
-      `http://localhost:8000/api/v1/quiz/${quiz.id}`,
-      {
-        method: "DELETE",
-      }
-    );
+    const response = await fetch(`${API_URL}/${quiz.id}`, {
+      method: "DELETE",
+    });
     if (response.ok) {
       dispatch({ type: "quiz/deleted", payload: quiz.id });
     }

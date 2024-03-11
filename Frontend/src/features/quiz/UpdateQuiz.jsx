@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { Form, useNavigate, useParams } from "react-router-dom";
 import { useQuizContext } from "../../context/QuizContext";
 
+const API_URL = process.env.API_URL;
+
 function UpdateQuiz() {
   const { quizId } = useParams();
   const [formData, setFormData] = useState({
@@ -20,9 +22,7 @@ function UpdateQuiz() {
   useEffect(() => {
     const fetchQuizData = async () => {
       try {
-        const response = await fetch(
-          `http://localhost:8000/api/v1/quiz/${quizId}`
-        );
+        const response = await fetch(`${API_URL}/${quizId}`);
         const { data } = await response.json();
         if (response.ok) {
           setFormData(data);
@@ -87,16 +87,13 @@ function UpdateQuiz() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(
-        `http://localhost:8000/api/v1/quiz/${quizId}`,
-        {
-          method: "PATCH",
-          body: JSON.stringify(formData),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const response = await fetch(`${API_URL}/${quizId}`, {
+        method: "PATCH",
+        body: JSON.stringify(formData),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
       if (response.ok) {
         const { data } = await response.json();
