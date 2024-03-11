@@ -4,7 +4,11 @@ import { db_config } from '../config/db_config';
 
 const config = db_config[process.env.NODE_ENV];
 
-const db = new Sequelize(config.database, config.username, config.password, {
+let db;
+if (process.env.DB_URL) {
+  db = new Sequelize(process.env.DB_URL);
+}
+db = new Sequelize(config.database, config.username, config.password, {
   host: config.host,
   dialect: config.dialect,
   port: config.port,
