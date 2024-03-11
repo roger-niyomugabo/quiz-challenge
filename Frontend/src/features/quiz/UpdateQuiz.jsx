@@ -132,14 +132,14 @@ function UpdateQuiz() {
       {formData.questions.map((question, questionIndex) => (
         <div key={questionIndex}>
           <label>Question:</label>
-          <input
-            type="text"
+          <textarea
             name="question"
             value={question.question}
             onChange={(e) => handleInputChange(e, questionIndex)}
             required
           />
           <br />
+          <label>Mark any of the options as the right answer</label>
           {question.options.map((option, optionIndex) => (
             <div key={optionIndex}>
               <input
